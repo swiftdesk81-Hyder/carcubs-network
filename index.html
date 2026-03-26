@@ -3,79 +3,242 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DRAGDRIVE | B2B Dealer Exchange</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: { 'neon-green': '#00FF00', 'dark-bg': '#0A0A0A', 'card-bg': '#141414' },
-                    fontFamily: { sans: ['Inter', 'sans-serif'], condensed: ['Anton', 'sans-serif'] },
-                }
-            }
-        }
-    </script>
+    <title>DragDrive | Defense Innovation</title>
     <style>
-        .text-fit { word-break: break-word; overflow-wrap: break-word; }
-        .hero-gradient { background: radial-gradient(circle at center, #1a3a1a 0%, #0a0a0a 100%); }
+        :root {
+            --bg-black: #050505;
+            --card-gray: #0f0f0f;
+            --border-gray: #1e1e1e;
+            --accent-green: #00ff66; /* Tactical Alert Green */
+            --text-silver: #d1d1d1;
+            --text-dim: #707070;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-black);
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            padding: 1.5rem 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(5, 5, 5, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-gray);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .brand {
+            font-size: 1.4rem;
+            font-weight: 900;
+            letter-spacing: 3px;
+            color: var(--accent-green);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 10%;
+            background: linear-gradient(to bottom, #0a0a0a, #050505);
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 10vw, 5rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            letter-spacing: -2px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-silver);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        /* Action Buttons */
+        .btn {
+            background: var(--accent-green);
+            color: #000;
+            padding: 15px 35px;
+            text-decoration: none;
+            font-weight: 800;
+            text-transform: uppercase;
+            border-radius: 2px;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            filter: brightness(1.2);
+            box-shadow: 0 0 20px rgba(0, 255, 102, 0.3);
+        }
+
+        /* Project Section */
+        .section {
+            padding: 80px 10%;
+        }
+
+        .section-title {
+            color: var(--accent-green);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+            display: block;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--card-gray);
+            border: 1px solid var(--border-gray);
+            padding: 40px;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--accent-green);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
+
+        /* Project Highlights */
+        .project-detail {
+            border-top: 1px solid var(--border-gray);
+            padding-top: 60px;
+            margin-top: 60px;
+        }
+
+        .stat-box {
+            display: flex;
+            gap: 50px;
+            margin-top: 30px;
+        }
+
+        .stat-item h4 {
+            color: var(--accent-green);
+            font-size: 2rem;
+        }
+
+        .stat-item span {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 10%;
+            border-top: 1px solid var(--border-gray);
+            text-align: center;
+        }
+
+        .contact-text {
+            color: var(--text-dim);
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .stat-box { flex-direction: column; gap: 20px; }
+            .hero h1 { font-size: 3rem; }
+        }
     </style>
 </head>
-<body class="bg-dark-bg text-white font-sans antialiased">
+<body>
 
-    <header class="border-b border-white/10 sticky top-0 bg-dark-bg/90 backdrop-blur-md z-50">
-        <nav class="container mx-auto px-5 py-4 flex justify-between items-center">
-            <div class="text-2xl font-black text-neon-green tracking-tighter italic">DRAGDRIVE</div>
-            <a href="#apply" class="bg-neon-green text-black text-[10px] font-black px-4 py-2 rounded uppercase tracking-widest">Dealer Hub</a>
-        </nav>
+    <nav>
+        <div class="brand">DRAGDRIVE</div>
+        <div style="font-size: 0.8rem; color: var(--text-dim);">INDIVIDUAL INNOVATOR TRACK</div>
+    </nav>
+
+    <header class="hero">
+        <h1>DRAGDRIVE</h1>
+        <p>Advanced projectile delivery systems and autonomous defense hardware. Bridging the gap between garage-level prototyping and national defense standards.</p>
+        <a href="mailto:swiftdesk81@gmail.com" class="btn">Apply Now</a>
     </header>
 
-    <section class="hero-gradient py-20 px-5 text-center border-b border-white/5">
-        <div class="container mx-auto max-w-4xl">
-            <h1 class="font-condensed text-5xl md:text-8xl leading-[0.9] uppercase mb-6 text-fit italic">
-                DRAG THE DEAL.<br><span class="text-neon-green">DRIVE THE MARGIN.</span>
-            </h1>
-            <p class="text-gray-400 text-lg md:text-xl font-light mb-10 max-w-2xl mx-auto">
-                The modern, commission-based car sales platform built for efficiency. No overhead. No dealerships. Just high-performance B2B trading.
-            </p>
-            <div class="inline-grid grid-cols-2 md:grid-cols-4 gap-4 text-left border border-white/10 p-4 rounded-lg bg-black/40">
-                <div><p class="text-[10px] text-gray-500 uppercase tracking-widest">Exchange</p><p class="text-neon-green font-bold">DRAGDRIVE</p></div>
-                <div><p class="text-[10px] text-gray-500 uppercase tracking-widest">Model</p><p class="font-bold text-white">B2B ONLY</p></div>
-                <div><p class="text-[10px] text-gray-500 uppercase tracking-widest">Fee Structure</p><p class="font-bold text-white">COMMISSION</p></div>
-                <div><p class="text-[10px] text-gray-500 uppercase tracking-widest">Status</p><p class="font-bold text-white">LIVE HUB</p></div>
+    <section class="section">
+        <span class="section-title">Operational Focus</span>
+        <div class="grid">
+            <div class="card">
+                <h3>iDEX Prototype</h3>
+                <p>Developing specialized drone-based projectile systems designed for the Innovations for Defence Excellence (iDEX) incubator. High-precision, rapid-deployment engineering.</p>
+            </div>
+            <div class="card">
+                <h3>Asymmetric R&D</h3>
+                <p>Utilizing 3D printing and high-energy materials science to reduce manufacturing costs while maintaining Tier-1 performance metrics. Rapid iteration, zero bloat.</p>
+            </div>
+            <div class="card">
+                <h3>Scalable Logistics</h3>
+                <p>Built on the foundation of the CarCubs business model, DragDrive focuses on lean operational margins (35-40%) for high-impact defense contracts.</p>
+            </div>
+        </div>
+
+        <div class="project-detail">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">System Specifications</h2>
+            <p style="color: var(--text-dim); max-width: 700px;">Focusing on small-scale, high-repetition testing. We specialize in materials and propulsion systems optimized for payload delivery in complex environments.</p>
+            
+            <div class="stat-box">
+                <div class="stat-item">
+                    <h4>3D-PRT</h4>
+                    <span>Core Body Construction</span>
+                </div>
+                <div class="stat-item">
+                    <h4>40%</h4>
+                    <span>Target Op-Margin</span>
+                </div>
+                <div class="stat-item">
+                    <h4>250g+</h4>
+                    <span>Testing Payload</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="py-20 px-5">
-        <div class="container mx-auto max-w-5xl">
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="p-8 bg-card-bg border border-white/5 rounded-2xl">
-                    <div class="text-neon-green text-3xl mb-4 font-black">01</div>
-                    <h3 class="text-xl font-bold mb-3 uppercase tracking-tight">The Drag Method</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">We source genuine inventory and drag the best market prices directly to our verified network, cutting out middleman delays.</p>
-                </div>
-                <div class="p-8 bg-card-bg border border-white/5 rounded-2xl">
-                    <div class="text-neon-green text-3xl mb-4 font-black">02</div>
-                    <h3 class="text-xl font-bold mb-3 uppercase tracking-tight">Performance Drive</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Agents earn on success, not salaries. This ensures a results-oriented team focused entirely on closing high-quality trades.</p>
-                </div>
-                <div class="p-8 bg-card-bg border border-white/5 rounded-2xl">
-                    <div class="text-neon-green text-3xl mb-4 font-black">03</div>
-                    <h3 class="text-xl font-bold mb-3 uppercase tracking-tight">Dealer Verified</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">A secure environment where professional dealers access ready-to-buy customers without the overhead of traditional showrooms.</p>
-                </div>
-            </div>
-        </div>
+    <section class="section" style="background: #080808; text-align: center;">
+        <h2 style="margin-bottom: 20px;">READY FOR OPERATIONS</h2>
+        <p class="contact-text">Currently seeking partnerships for individual innovator proofs and government submissions.</p>
+        <a href="mailto:swiftdesk81@gmail.com" style="color: var(--accent-green); font-weight: bold; text-decoration: none; font-size: 1.2rem;">swiftdesk81@gmail.com</a>
     </section>
 
-    <section id="apply" class="py-20 px-5 bg-neon-green text-black">
-        <div class="container mx-auto max-w-xl text-center">
-            <h2 class="font-black text-3xl md:text-5xl uppercase leading-none mb-8 text-fit italic">
-                READY TO JOIN THE NETWORK?
-            </h2>
-            <p class="font-bold mb-10 text-black/70 italic">Exclusive access for professional dealers and verified sales partners.</p>
-            <a href="mailto:trade@dragdrive.com" class="block w-full bg-black text-white font-black py-5
-                
+    <footer>
+        <p>&copy; 2026 DRAGDRIVE | Mumbai Division</p>
+        <p style="font-size: 0.7rem; color: #444; margin-top: 10px;">Security Status: Active // Prototype Phase</p>
+    </footer>
+
+</body>
+</html>
